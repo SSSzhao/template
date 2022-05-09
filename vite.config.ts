@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import AutoImport from 'unplugin-auto-import/vite'
-// import eslintPlugin from 'vite-plugin-eslint'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,11 +17,11 @@ export default defineConfig({
       },
       dts: './auto-imports.d.ts'
     })
-    // eslintPlugin({
-    //   include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
-    // })
   ],
   base: './',
+  server: {
+    host: true
+  },
   build: {
     // 消除打包大小超过 500kb 警告
     chunkSizeWarningLimit: 2000,

@@ -15,6 +15,7 @@ const msg = require('fs').readFileSync('.git/COMMIT_EDITMSG', 'utf-8').trim()
 // chore: 其他修改（不在上述类型中的修改）
 // release: 发版
 // deps: 依赖相关的修改
+// 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
 const commitRE =
   /^(revert: )?(feat|fix|docs|dx|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|deps)(\(.+\))?: .{1,50}/
 const mergeRe = /^(Merge pull request|Merge branch)/

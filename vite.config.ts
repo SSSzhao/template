@@ -22,6 +22,10 @@ export default defineConfig({
   server: {
     host: true
   },
+  define: {
+    // 关闭OPTIONS_API,减少打包大小
+    __VUE_OPTIONS_API__: false
+  },
   build: {
     // 消除打包大小超过 500kb 警告
     chunkSizeWarningLimit: 2000,

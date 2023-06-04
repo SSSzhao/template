@@ -35,23 +35,23 @@ jobs:
           npm install
           npm run build
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.3.3
-        with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages
-          folder: dist
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@v4.3.3
+      #   with:
+      #     token: ${{ secrets.ACCESS_TOKEN }}
+      #     branch: gh-pages
+      #     folder: dist
 
-      # - name: 上传服务器
-      #   # 密钥验证
-      #   uses: easingthemes/ssh-deploy@v2.1.6
-      #   env:
-      #     SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_KEY }}
-      #     ARGS: "-rltgoDzvO"
-      #     SOURCE: "dist/" #仓库根路径
-      #     REMOTE_HOST: ${{ secrets.SSH_HOST }}
-      #     REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-      #     TARGET: ${{ secrets.SSH_TARGET }} #目标服务器的路径
+      - name: 上传服务器
+        # 密钥验证
+        uses: easingthemes/ssh-deploy@v2.1.6
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+          ARGS: "-avzr --delete"
+          SOURCE: "dist/" #仓库根路径
+          REMOTE_HOST: '118.31.3.130'
+          REMOTE_USER: 'root'
+          TARGET: 'home/' #目标服务器的路径
       # 账号密码验证
       # uses: kostya-ten/ssh-server-deploy@v4
       # with:

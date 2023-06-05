@@ -44,14 +44,14 @@ jobs:
 
       - name: 上传服务器
         # 密钥验证
-        uses: easingthemes/ssh-deploy@v2.1.6
+        uses: easingthemes/ssh-deploy@v2.1.1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
           ARGS: "-avzr --delete"
           SOURCE: "dist/" #仓库根路径
           REMOTE_HOST: '118.31.3.130'
           REMOTE_USER: 'root'
-          TARGET: 'home/' #目标服务器的路径
+          TARGET: '/home/' #目标服务器的路径
       # 账号密码验证
       # uses: kostya-ten/ssh-server-deploy@v4
       # with:
